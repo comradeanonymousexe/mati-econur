@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>মাটি | Eco-Nur Movement — Chemical-Free Bangladesh</title>
+<meta name="description" content="The movement behind Eco-Nur. A community built on chemical-free living, plastic-free choices, and local-first values. Made in Bangladesh.">
+<meta property="og:title" content="মাটি | Eco-Nur Movement">
+<meta property="og:description" content="A movement for chemical-free living, plastic-free choices, and businesses built on kindness. Made in Bangladesh.">
+<meta property="og:url" content="https://mati.eco-nur.com">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Hind+Siliguri:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+/* ── CSS VARIABLES ── */
+:root {
+  --mati-soil:       #0d3027;
+  --mati-earth:      #1a4a35;
+  --mati-moss:       #2d6a4f;
+  --mati-sage:       #74a57f;
+  --mati-cream:      #f5f0e8;
+  --mati-sand:       #e8dcc8;
+  --mati-terracotta: #c4622d;
+  --mati-gold:       #d4a843;
+  --mati-ink:        #1c1c1a;
+  --mati-mist:       #f9f6f0;
+}
+
+/* ── RESET & BASE ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  background: var(--mati-mist);
+  color: var(--mati-ink);
+  overflow-x: hidden;
+}
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; background: none; font: inherit; }
+
+/* ── REDUCED MOTION ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── TYPOGRAPHY ── */
+.serif { font-family: 'Cormorant Garamond', serif; }
+.bengali { font-family: 'Hind Siliguri', sans-serif; }
+
+/* ── FADE-UP REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ═══════════════════════════════════════
+   NAV
+═══════════════════════════════════════ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 1.25rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.4s ease, padding 0.4s ease;
+}
+nav.scrolled {
+  background: var(--mati-soil);
+  padding: 0.9rem 3rem;
+}
+.nav-logo {
+  font-family: 'Hind Siliguri', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--mati-cream);
+  letter-spacing: 0.04em;
+}
+.nav-logo span { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-style: italic; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--mati-cream);
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+.nav-links a:hover { opacity: 1; }
+.nav-cta {
+  background: var(--mati-terracotta);
+  color: var(--mati-cream) !important;
+  opacity: 1 !important;
+  padding: 0.55rem 1.4rem;
+  border-radius: 2px;
+  font-size: 0.82rem !important;
+  letter-spacing: 0.06em;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: #a8501f !important; }
+
+/* Hamburger */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+.nav-hamburger span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--mati-cream);
+  transition: all 0.3s;
+}
+.nav-mobile {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--mati-soil);
+  z-index: 99;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+.nav-mobile.open { display: flex; }
+.nav-mobile a {
+  color: var(--mati-cream);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+.nav-mobile-close {
+  position: absolute;
+  top: 1.5rem; right: 2rem;
+  color: var(--mati-cream);
+  font-size: 2rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  line-height: 1;
+}
+
+@media (max-width: 768px) {
+  nav { padding: 1.1rem 1.5rem; }
+  nav.scrolled { padding: 0.85rem 1.5rem; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+}
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  background: var(--mati-soil);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8rem 3rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Grain texture overlay */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Parallax botanical bg element */
+.hero-bg-element {
+  position: absolute;
+  right: -80px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero-eyebrow {
+  font-family: 'Hind Siliguri', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  color: var(--mati-sage);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 0.2s forwards;
+}
+
+.hero-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(4rem, 11vw, 9rem);
+  font-weight: 300;
+  line-height: 0.95;
+  color: var(--mati-cream);
+  margin-bottom: 2.5rem;
+  overflow: hidden;
+}
+.hero-headline .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(60px);
+}
+.hero-headline .word:nth-child(1) { animation: wordUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards; }
+.hero-headline .word:nth-child(2) { animation: wordUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards; }
+.hero-headline .word.break { display: block; }
+.hero-headline .word:nth-child(3) { animation: wordUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards; }
+.hero-headline .word:nth-child(4) { animation: wordUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.9s forwards; }
+.hero-headline em {
+  font-style: italic;
+  color: var(--mati-gold);
+}
+
+.hero-sub {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 300;
+  color: var(--mati-cream);
+  opacity: 0.7;
+  max-width: 560px;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 1s forwards;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 0.8s ease 1.2s forwards;
+}
+.btn-ghost {
+  border: 1px solid rgba(245, 240, 232, 0.4);
+  color: var(--mati-cream);
+  padding: 0.85rem 2rem;
+  font-size: 0.88rem;
+  letter-spacing: 0.05em;
+  border-radius: 2px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-ghost:hover { border-color: var(--mati-cream); background: rgba(245,240,232,0.05); }
+.btn-filled {
+  background: var(--mati-terracotta);
+  color: var(--mati-cream);
+  padding: 0.85rem 2rem;
+  font-size: 0.88rem;
+  letter-spacing: 0.05em;
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+.btn-filled:hover { background: #a8501f; }
+
+@keyframes fadeUp {
+  to { opacity: 0.7; transform: translateY(0); }
+}
+@keyframes wordUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* The hero-sub uses opacity:0 twice which conflicts — fix inline */
+.hero-sub { animation: heroSubIn 0.8s ease 1s forwards; }
+@keyframes heroSubIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 0.7; transform: translateY(0); } }
+
+/* ── TICKER ── */
+.ticker-wrap {
+  position: relative;
+  z-index: 1;
+  margin-top: 4rem;
+  border-top: 1px solid rgba(245, 240, 232, 0.1);
+  padding-top: 1.5rem;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.ticker-track {
+  display: inline-flex;
+  animation: ticker 30s linear infinite;
+}
+.ticker-item {
+  font-family: 'Hind Siliguri', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mati-sage);
+  padding: 0 2.5rem;
+}
+.ticker-item::after {
+  content: '·';
+  margin-left: 2.5rem;
+  color: var(--mati-moss);
+}
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ═══════════════════════════════════════
+   SECTION SHARED STYLES
+═══════════════════════════════════════ */
+section { position: relative; }
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+@media (max-width: 768px) {
+  .container { padding: 0 1.5rem; }
+}
+
+.section-label {
+  font-family: 'Hind Siliguri', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+/* Botanical divider */
+.botanical-divider {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+/* ═══════════════════════════════════════
+   SECTION 1 — THE PROBLEM (MANIFESTO I)
+═══════════════════════════════════════ */
+.manifesto-one {
+  background: var(--mati-soil);
+  padding: 8rem 0;
+}
+.manifesto-one .section-label { color: var(--mati-sage); }
+.manifesto-one h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--mati-cream);
+  line-height: 1.1;
+  margin-bottom: 4rem;
+}
+.manifesto-text {
+  max-width: 780px;
+}
+.manifesto-text p {
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  line-height: 1.85;
+  color: rgba(245, 240, 232, 0.75);
+  margin-bottom: 2rem;
+}
+.manifesto-text p:first-of-type::first-letter {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5rem;
+  font-weight: 600;
+  float: left;
+  line-height: 0.75;
+  margin-right: 0.1em;
+  margin-top: 0.1em;
+  color: var(--mati-gold);
+}
+.manifesto-text p strong {
+  color: var(--mati-cream);
+  font-weight: 500;
+}
+.pull-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--mati-gold);
+  line-height: 1.3;
+  border-left: 2px solid var(--mati-terracotta);
+  padding-left: 2rem;
+  margin: 3rem 0 3rem 2rem;
+}
+@media (max-width: 768px) {
+  .pull-quote { margin-left: 0; }
+}
+
+/* ═══════════════════════════════════════
+   SECTION 2 — OUR PRINCIPLES
+═══════════════════════════════════════ */
+.principles {
+  background: var(--mati-mist);
+  padding: 8rem 0;
+}
+.principles .section-label { color: var(--mati-moss); }
+.principles h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 300;
+  color: var(--mati-soil);
+  margin-bottom: 4rem;
+  line-height: 1.15;
+}
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+@media (max-width: 900px) {
+  .principles-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 500px) {
+  .principles-grid { grid-template-columns: 1fr; }
+}
+.principle-card {
+  background: var(--mati-cream);
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  border-left: 2px solid transparent;
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  cursor: default;
+}
+.principle-card:hover {
+  border-left-color: var(--mati-terracotta);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(13, 48, 39, 0.1);
+}
+.card-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 7rem;
+  font-weight: 700;
+  color: var(--mati-sand);
+  position: absolute;
+  right: -0.5rem;
+  bottom: -1.5rem;
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  transition: color 0.3s;
+}
+.principle-card:hover .card-number { color: rgba(196, 98, 45, 0.1); }
+.card-icon {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 1.5rem;
+  color: var(--mati-moss);
+}
+.card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--mati-soil);
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+.card-desc {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #4a5a52;
+}
+
+/* ═══════════════════════════════════════
+   SECTION 3 — GIVE BACK
+═══════════════════════════════════════ */
+.give-back {
+  background: var(--mati-earth);
+  padding: 8rem 0;
+}
+.give-back .section-label { color: var(--mati-sage); }
+.give-back-stat {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(6rem, 18vw, 14rem);
+  font-weight: 700;
+  color: var(--mati-terracotta);
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+}
+.give-back-stat-label {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 300;
+  color: var(--mati-cream);
+  opacity: 0.7;
+  line-height: 1.5;
+  margin-top: 1rem;
+  margin-bottom: 4rem;
+}
+.give-back-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  margin-top: 4rem;
+  border-top: 1px solid rgba(245, 240, 232, 0.1);
+  padding-top: 3.5rem;
+}
+@media (max-width: 768px) {
+  .give-back-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+.give-back-col h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--mati-gold);
+  margin-bottom: 1rem;
+}
+.give-back-col p {
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: rgba(245, 240, 232, 0.65);
+}
+.give-back-note {
+  margin-top: 3.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mati-sage);
+}
+
+/* ═══════════════════════════════════════
+   SECTION 4 — MOVEMENT NUMBERS
+═══════════════════════════════════════ */
+.numbers {
+  background: var(--mati-earth);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 5rem 0;
+}
+.numbers-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  justify-content: space-between;
+}
+.number-item {
+  flex: 1;
+  min-width: 140px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.06);
+}
+.number-item:last-child { border-right: none; }
+.number-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  color: var(--mati-gold);
+  line-height: 1;
+  display: block;
+}
+.number-label {
+  font-family: 'Hind Siliguri', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mati-sage);
+  display: block;
+  margin-top: 0.5rem;
+}
+@media (max-width: 600px) {
+  .numbers-strip { gap: 0; }
+  .number-item {
+    min-width: 50%;
+    flex: none;
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+}
+
+/* ═══════════════════════════════════════
+   SECTION 5 — WHY LOCAL MATTERS (MANIFESTO II)
+═══════════════════════════════════════ */
+.manifesto-two {
+  background: var(--mati-cream);
+  padding: 8rem 0;
+}
+.manifesto-two .section-label { color: var(--mati-moss); }
+.manifesto-two-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: start;
+}
+@media (max-width: 768px) {
+  .manifesto-two-grid { grid-template-columns: 1fr; gap: 3rem; }
+}
+.manifesto-two h2 {
+  font-family: 'Hind Siliguri', sans-serif;
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-weight: 600;
+  color: var(--mati-soil);
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+.manifesto-two h2 em {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.75em;
+  font-style: italic;
+  font-weight: 300;
+  display: block;
+  color: var(--mati-moss);
+  margin-top: 0.25rem;
+}
+.manifesto-two p {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: #3a4a42;
+  margin-bottom: 1.5rem;
+}
+.manifesto-two p strong { color: var(--mati-soil); }
+
+/* Botanical SVG art */
+.botanical-art {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+/* ═══════════════════════════════════════
+   SECTION 6 — JOIN THE MOVEMENT
+═══════════════════════════════════════ */
+.join {
+  background: var(--mati-soil);
+  padding: 8rem 0;
+}
+.join .section-label { color: var(--mati-sage); }
+.join h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--mati-cream);
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+}
+.join-sub {
+  font-size: 1rem;
+  color: rgba(245,240,232,0.6);
+  max-width: 480px;
+  line-height: 1.7;
+  margin-bottom: 3.5rem;
+}
+.join-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  max-width: 680px;
+}
+@media (max-width: 600px) {
+  .join-form { grid-template-columns: 1fr; }
+}
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.form-field.full { grid-column: 1 / -1; }
+.form-field label {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mati-sage);
+}
+.form-field input,
+.form-field textarea {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(245,240,232,0.15);
+  color: var(--mati-cream);
+  padding: 0.85rem 1rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  border-radius: 2px;
+  outline: none;
+  transition: border-color 0.2s;
+  resize: vertical;
+}
+.form-field input::placeholder,
+.form-field textarea::placeholder { color: rgba(245,240,232,0.3); }
+.form-field input:focus,
+.form-field textarea:focus { border-color: rgba(245,240,232,0.5); }
+.form-submit {
+  background: var(--mati-terracotta);
+  color: var(--mati-cream);
+  padding: 1rem 2.5rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  width: fit-content;
+  margin-top: 0.5rem;
+  transition: background 0.2s;
+}
+.form-submit:hover { background: #a8501f; }
+.form-note {
+  font-size: 0.78rem;
+  color: rgba(245,240,232,0.4);
+  margin-top: 1rem;
+  font-style: italic;
+}
+.social-links {
+  display: flex;
+  gap: 2rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(245,240,232,0.08);
+}
+.social-link {
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mati-sage);
+  transition: color 0.2s;
+}
+.social-link:hover { color: var(--mati-cream); }
+
+/* ═══════════════════════════════════════
+   SECTION 7 — BRIDGE TO PRODUCT
+═══════════════════════════════════════ */
+.bridge {
+  background: var(--mati-cream);
+  padding: 8rem 0;
+  text-align: center;
+}
+.bridge .section-label { color: var(--mati-moss); justify-content: center; display: flex; }
+.bridge h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  font-weight: 300;
+  color: var(--mati-soil);
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+}
+.bridge p {
+  font-size: 1.05rem;
+  color: #4a5a52;
+  line-height: 1.7;
+  max-width: 500px;
+  margin: 0 auto 3rem;
+}
+.btn-bridge {
+  display: inline-block;
+  background: var(--mati-soil);
+  color: var(--mati-cream);
+  padding: 1.1rem 3rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  border-radius: 2px;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-bridge:hover { background: var(--mati-earth); transform: translateY(-2px); }
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+footer {
+  background: var(--mati-ink);
+  padding: 4rem 0;
+}
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+@media (max-width: 768px) {
+  .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+.footer-logo {
+  font-family: 'Hind Siliguri', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--mati-cream);
+  margin-bottom: 0.75rem;
+}
+.footer-tagline {
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: rgba(245,240,232,0.45);
+}
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.footer-links a {
+  font-size: 0.85rem;
+  color: rgba(245,240,232,0.55);
+  transition: color 0.2s;
+  letter-spacing: 0.04em;
+}
+.footer-links a:hover { color: var(--mati-cream); }
+.footer-bottom {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-copyright {
+  font-size: 0.78rem;
+  color: rgba(245,240,232,0.3);
+}
+.footer-integrity {
+  font-size: 0.72rem;
+  color: rgba(245,240,232,0.25);
+  font-style: italic;
+  max-width: 440px;
+  line-height: 1.6;
+  text-align: right;
+}
+@media (max-width: 600px) {
+  .footer-integrity { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════
+     NAV
+═══════════════════════════════════ -->
+<nav id="main-nav" aria-label="Primary navigation">
+  <a href="/" class="nav-logo"><span lang="bn">মাটি</span> · MATI</a>
+
+  <ul class="nav-links" role="list">
+    <li><a href="#manifesto">Our Manifesto</a></li>
+    <li><a href="#movement">The Movement</a></li>
+    <li><a href="#give-back">Give Back</a></li>
+    <li><a href="#join">Join Us</a></li>
+    <!-- <li><a href="https://eco-nur.com" class="nav-cta" aria-label="Try Eco-Nur Soap — opens product site">Try Eco-Nur Soap</a></li> -->
+  </ul>
+
+  <button class="nav-hamburger" id="nav-toggle" aria-label="Open navigation menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile nav overlay -->
+<div class="nav-mobile" id="nav-mobile" role="dialog" aria-label="Navigation menu">
+  <button class="nav-mobile-close" id="nav-close" aria-label="Close menu">×</button>
+  <a href="#manifesto" class="nav-mobile-link">Our Manifesto</a>
+  <a href="#movement" class="nav-mobile-link">The Movement</a>
+  <a href="#give-back" class="nav-mobile-link">Give Back</a>
+  <a href="#join" class="nav-mobile-link">Join Us</a>
+  <!-- <a href="https://eco-nur.com" style="color:var(--mati-terracotta)">Try Eco-Nur Soap →</a> -->
+</div>
+
+<!-- ═══════════════════════════════════
+     HERO
+═══════════════════════════════════ -->
+<section class="hero" aria-label="Hero — We Chose The Soil">
+
+  <!-- Large botanical background element -->
+  <svg class="hero-bg-element" width="600" height="800" viewBox="0 0 600 800" fill="none" aria-hidden="true">
+    <ellipse cx="300" cy="400" rx="280" ry="380" stroke="white" stroke-width="0.5" opacity="0.5"/>
+    <ellipse cx="300" cy="400" rx="200" ry="280" stroke="white" stroke-width="0.5" opacity="0.4"/>
+    <line x1="300" y1="20" x2="300" y2="780" stroke="white" stroke-width="0.3" opacity="0.3"/>
+    <line x1="20" y1="400" x2="580" y2="400" stroke="white" stroke-width="0.3" opacity="0.3"/>
+    <path d="M300 400 Q180 280 120 180 Q80 120 100 60" stroke="white" stroke-width="0.5" fill="none" opacity="0.4"/>
+    <path d="M300 400 Q420 280 480 180 Q520 120 500 60" stroke="white" stroke-width="0.5" fill="none" opacity="0.4"/>
+    <path d="M300 400 Q180 520 120 620 Q80 680 100 740" stroke="white" stroke-width="0.5" fill="none" opacity="0.4"/>
+    <path d="M300 400 Q420 520 480 620 Q520 680 500 740" stroke="white" stroke-width="0.5" fill="none" opacity="0.4"/>
+    <circle cx="300" cy="400" r="8" fill="white" opacity="0.2"/>
+    <circle cx="300" cy="400" r="3" fill="white" opacity="0.4"/>
+  </svg>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow" lang="bn">মাটি · Eco-Nur Movement</p>
+
+    <h1 class="hero-headline serif">
+      <span class="word">We</span>
+      <span class="word"> Chose</span>
+      <br>
+      <span class="word"><em>The Soil.</em></span>
+    </h1>
+
+    <!-- <p class="hero-sub">
+      A movement for chemical-free living & plastic-free choice.
+      Made in Bangladesh. Rooted in <span lang="bn">মাটি</span>.
+    </p> -->
+
+    <div class="hero-ctas">
+      <a href="#manifesto" class="btn-ghost">Read Our Manifesto ↓</a>
+      <a href="https://eco-nur.com" class="btn-filled" aria-label="Shop Eco-Nur Soap — opens product site">Shop the Soap</a>
+    </div>
+  </div>
+
+  <!-- Ticker -->
+  <div class="ticker-wrap" aria-label="Movement values ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-item">chemical-free</span>
+      <span class="ticker-item">plastic-free</span>
+      <span class="ticker-item">local-first</span>
+      <span class="ticker-item">kindness-driven</span>
+      <span class="ticker-item" lang="bn">মাটি বাংলাদেশ</span>
+      <span class="ticker-item">no imports</span>
+      <span class="ticker-item">soil to skin</span>
+      <span class="ticker-item">BCSIR certified</span>
+      <span class="ticker-item">cold-pressed oils</span>
+      <span class="ticker-item">plant botanicals</span>
+      <!-- duplicate for seamless loop -->
+      <span class="ticker-item">chemical-free</span>
+      <span class="ticker-item">plastic-free</span>
+      <span class="ticker-item">local-first</span>
+      <span class="ticker-item">kindness-driven</span>
+      <span class="ticker-item" lang="bn">মাটি বাংলাদেশ</span>
+      <span class="ticker-item">no imports</span>
+      <span class="ticker-item">soil to skin</span>
+      <span class="ticker-item">BCSIR certified</span>
+      <span class="ticker-item">cold-pressed oils</span>
+      <span class="ticker-item">plant botanicals</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     SECTION 3 — THE PROBLEM (MANIFESTO I)
+═══════════════════════════════════ -->
+<section class="manifesto-one" id="manifesto" aria-label="The Problem — Manifesto Part I">
+  <div class="container">
+    <p class="section-label reveal">Manifesto · Part I</p>
+    <h2 class="reveal reveal-delay-1">"We Were<br>Sold a Lie."</h2>
+
+    <div class="manifesto-text">
+      <p class="reveal reveal-delay-2">
+        <!-- FILL: Opening paragraph about how chemical-laden imported products flooded Bangladeshi markets and displaced local, natural alternatives. Talk about the scale — the shelves, the advertisements, the promise of "modern" cleanliness. -->
+        For decades, our shelves were quietly flooded. Products from distant factories, wrapped in plastic, laced with chemicals no one could pronounce, arrived with glossy packaging and the implicit message that <strong>imported means better.</strong> That synthetic means safe. That what our soil had always provided was somehow insufficient.
+      </p>
+
+      <blockquote class="pull-quote reveal">
+        "Foreign wasn't better. It was just louder."
+      </blockquote>
+
+      <p class="reveal reveal-delay-1">
+        <!-- FILL: Paragraph about plastic normalization — how single-use plastic in beauty and personal care became so standard that alternatives seemed radical. The environmental cost in Bangladesh specifically. -->
+        Plastic became invisible because it became ordinary. Every shampoo bottle, every shower gel tube, every foil sachet — normalized. Accepted. We stopped asking where it went after the bin. <strong>Bangladesh generates thousands of tonnes of plastic waste daily,</strong> much of it from the very personal care products we use to feel clean. The irony is almost cruel.
+      </p>
+
+      <p class="reveal reveal-delay-2">
+        <!-- FILL: Paragraph about loss of trust in local makers — how "Made in Bangladesh" in personal care became associated with cheap, unregulated, inferior. How this broke the relationship between local producers and their community. -->
+        Somewhere along the way, we were taught to distrust our own makers. "Made in Bangladesh" became a label for cheap, unregulated, not-quite-right. The same hands that grew the turmeric, pressed the mustard oil, harvested the neem — those hands were told their craft was not enough. That trust, once broken, is hard to rebuild. But it is not impossible.
+      </p>
+
+      <p class="reveal reveal-delay-3">
+        <!-- FILL: Closing manifesto paragraph — the awakening, the call to reclaim. The shift happening now. The choice to return to what was always there. -->
+        The lie is unraveling. More and more people are reading labels, asking questions, and choosing differently. Not out of nostalgia, but out of intelligence. They understand that <strong>what you put on your body enters your body.</strong> That the economy you feed with your choices shapes the world your children will inherit. This movement is for those people. This movement is for you.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Botanical SVG divider -->
+<div class="botanical-divider" style="background:var(--mati-soil);" aria-hidden="true">
+  <svg viewBox="0 0 1200 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;width:100%;height:60px;">
+    <path d="M0 30 Q150 10 300 30 Q450 50 600 30 Q750 10 900 30 Q1050 50 1200 30" stroke="rgba(45,106,79,0.4)" stroke-width="1" fill="none"/>
+    <path d="M0 40 Q150 20 300 40 Q450 60 600 40 Q750 20 900 40 Q1050 60 1200 40" stroke="rgba(45,106,79,0.2)" stroke-width="0.5" fill="none"/>
+    <circle cx="300" cy="30" r="3" fill="rgba(116,165,127,0.4)"/>
+    <circle cx="600" cy="30" r="3" fill="rgba(116,165,127,0.4)"/>
+    <circle cx="900" cy="30" r="3" fill="rgba(116,165,127,0.4)"/>
+    <line x1="300" y1="20" x2="290" y2="8" stroke="rgba(116,165,127,0.3)" stroke-width="0.8"/>
+    <line x1="300" y1="20" x2="310" y2="8" stroke="rgba(116,165,127,0.3)" stroke-width="0.8"/>
+    <line x1="600" y1="20" x2="590" y2="8" stroke="rgba(116,165,127,0.3)" stroke-width="0.8"/>
+    <line x1="600" y1="20" x2="610" y2="8" stroke="rgba(116,165,127,0.3)" stroke-width="0.8"/>
+    <line x1="900" y1="20" x2="890" y2="8" stroke="rgba(116,165,127,0.3)" stroke-width="0.8"/>
+    <line x1="900" y1="20" x2="910" y2="8" stroke="rgba(116,165,127,0.3)" stroke-width="0.8"/>
+  </svg>
+</div>
+
+<!-- ═══════════════════════════════════
+     SECTION 4 — OUR PRINCIPLES
+═══════════════════════════════════ -->
+<section class="principles" id="movement" aria-label="Our 6 Core Principles">
+  <div class="container">
+    <p class="section-label reveal">Our Principles · Six Commitments</p>
+    <h2 class="reveal reveal-delay-1">What we stand for.<br><em style="font-style:italic;font-weight:300;font-family:'Cormorant Garamond',serif;font-size:0.75em;color:var(--mati-moss)">Without compromise.</em></h2>
+
+    <div class="principles-grid">
+
+      <!-- Card 1 -->
+      <article class="principle-card reveal">
+        <span class="card-number" aria-hidden="true">01</span>
+        <svg class="card-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M18 4 C18 4 8 14 8 22 C8 27.5 12.5 32 18 32 C23.5 32 28 27.5 28 22 C28 14 18 4 18 4Z"/>
+          <path d="M18 18 C15 15 13 18 12 22" stroke-width="0.8" opacity="0.5"/>
+        </svg>
+        <h3 class="card-title">Chemical-Free Forever</h3>
+        <p class="card-desc">
+          <!-- FILL: Your principle statement about the commitment to zero synthetic chemicals — parabens, SLS, artificial fragrances, preservatives. Make it a promise, not a policy. -->
+          We will never compromise on this. Not for shelf life. Not for texture. Not for price. Every ingredient in every bar is something the earth made. Full stop.
+        </p>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="principle-card reveal reveal-delay-1">
+        <span class="card-number" aria-hidden="true">02</span>
+        <svg class="card-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M18 6 L22 14 L31 15.5 L24.5 22 L26 31 L18 27 L10 31 L11.5 22 L5 15.5 L14 14 Z" stroke-width="1"/>
+          <circle cx="18" cy="18" r="4" stroke-width="0.7" opacity="0.4"/>
+        </svg>
+        <h3 class="card-title">Plastic Is Not Our Future</h3>
+        <p class="card-desc">
+          <!-- FILL: Your principle statement about plastic-free packaging. The decision to package in paper, cloth, or nothing at all. The belief that your soap bar IS its own packaging. -->
+          A bar of soap needs no bottle. It is its own container — beautiful, zero-waste, and honest. We package in paper and cloth because the land doesn't deserve our convenience at its expense.
+        </p>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="principle-card reveal reveal-delay-2">
+        <span class="card-number" aria-hidden="true">03</span>
+        <svg class="card-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="18" cy="14" r="6"/>
+          <path d="M8 30 C8 24.5 12.5 20 18 20 C23.5 20 28 24.5 28 30"/>
+          <path d="M18 8 L18 4 M18 4 L15 7 M18 4 L21 7" stroke-width="0.8"/>
+        </svg>
+        <h3 class="card-title">Local-First, Always</h3>
+        <p class="card-desc">
+          <!-- FILL: Your principle statement about sourcing locally — oils, botanicals, labor, packaging. The economic multiplier effect of keeping money in local communities. -->
+          Every taka spent locally circles back. We source our oils, our botanicals, our packaging from Bangladeshi producers first — because economic sovereignty begins with who we choose to pay.
+        </p>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="principle-card reveal">
+        <span class="card-number" aria-hidden="true">04</span>
+        <svg class="card-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M18 28 L8.5 18.5 C6 16 6 12 8.5 9.5 C11 7 15 7 17.5 9.5 L18 10 L18.5 9.5 C21 7 25 7 27.5 9.5 C30 12 30 16 27.5 18.5 Z"/>
+        </svg>
+        <h3 class="card-title">Kindness as Strategy</h3>
+        <p class="card-desc">
+          <!-- FILL: Your principle about running a business with genuine care — for customers, suppliers, employees, the planet. That kindness isn't soft; it's the strongest business model. -->
+          Kindness is not naive. It is the most durable strategy in business. We pay fairly, price honestly, and never extract more than we give. This is not charity — it is the only way to build something that lasts.
+        </p>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="principle-card reveal reveal-delay-1">
+        <span class="card-number" aria-hidden="true">05</span>
+        <svg class="card-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="18" cy="18" r="10"/>
+          <path d="M18 8 L18 6 M18 30 L18 32 M8 18 L6 18 M30 18 L32 18"/>
+          <path d="M11.5 11.5 L10 10 M24.5 24.5 L26 26 M24.5 11.5 L26 10 M11.5 24.5 L10 26"/>
+          <circle cx="18" cy="18" r="4" fill="currentColor" opacity="0.15"/>
+        </svg>
+        <h3 class="card-title">Soil Over Shelf</h3>
+        <p class="card-desc">
+          <!-- FILL: Your principle about nature always taking precedence over convenience or commercial appeal. What the soil grows is enough — it always has been. -->
+          What the earth gives us is enough. Our formulations follow nature's intelligence, not market trends. If it doesn't grow, it doesn't go in.
+        </p>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="principle-card reveal reveal-delay-2">
+        <span class="card-number" aria-hidden="true">06</span>
+        <svg class="card-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="18" cy="18" r="12"/>
+          <path d="M6 18 Q12 14 18 18 Q24 22 30 18"/>
+          <path d="M10 12 Q14 10 18 12 Q22 14 26 12"/>
+          <path d="M10 24 Q14 22 18 24 Q22 26 26 24"/>
+        </svg>
+        <h3 class="card-title">Anti-Import Dependency</h3>
+        <p class="card-desc">
+          <!-- FILL: Your principle about Bangladesh's over-reliance on imported personal care — the trade deficit, the carbon miles, the disempowerment of local industry. The alternative you represent. -->
+          Bangladesh does not need to import its self-care. Our land is extraordinarily rich. Reducing import dependency in this category is an act of national self-respect — and it starts with your soap.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     SECTION 5 — GIVE BACK
+═══════════════════════════════════ -->
+<section class="give-back" id="give-back" aria-label="The Give Back — Social Welfare Pledge">
+  <div class="container">
+    <p class="section-label reveal" style="color:var(--mati-sage)">The Give Back · Social Welfare Pledge</p>
+
+    <div class="reveal reveal-delay-1">
+      <div class="give-back-stat" aria-label="5 to 10 percent">5–10%</div>
+      <p class="give-back-stat-label">
+        of every purchase<br>funds social welfare.
+      </p>
+    </div>
+
+    <p class="reveal" style="font-size:1rem;color:rgba(245,240,232,0.6);max-width:520px;line-height:1.75;">
+      <!-- FILL: A sentence or two expanding on the pledge — the commitment, what it feels like to buy a soap knowing it does more than clean your skin. -->
+      When you choose Eco-Nur, you choose more than a soap. You choose to put resources into the hands of people who need them — quietly, consistently, without fanfare.
+    </p>
+
+    <div class="give-back-grid reveal">
+      <div class="give-back-col">
+        <h3>Who We Support</h3>
+        <p>
+          <!-- FILL: Describe the beneficiaries — underprivileged women, madrasa students, flood-affected families, artisan communities, or whoever Eco-Nur specifically supports. Be specific and human. -->
+          We direct our welfare funds toward underprivileged women artisans, children in underserved communities, and families affected by seasonal flooding in rural Bangladesh. Real people. Real change.
+        </p>
+      </div>
+      <div class="give-back-col">
+        <h3>How It Works</h3>
+        <p>
+          <!-- FILL: Describe the mechanism — is it per bar sold? Per quarter? Through a partner NGO? A foundation? How does the money flow from purchase to impact? -->
+          A fixed percentage of every sale is ringfenced before any other expense. We partner with vetted local NGOs and community organizations to distribute support directly — no unnecessary intermediaries.
+        </p>
+      </div>
+      <div class="give-back-col">
+        <h3>What's Been Done</h3>
+        <p>
+          <!-- FILL: Real impact numbers or stories — families supported, meals provided, education funded, supplies distributed. If you don't have numbers yet, use a placeholder like [X families] or describe qualitative impact. -->
+          <!-- FILL: e.g. "Since launch, we've supported [X] families in [region], contributed to [initiative], and helped [Y] children access [resource]. Our annual report is published every [month]." -->
+          [This section will be updated with verified impact data. We publish our social welfare report annually.] Every quarter, we share exactly where the money went — because you deserve to know.
+        </p>
+      </div>
+    </div>
+
+    <p class="give-back-note reveal">
+      ✦ Verified annually. Because you deserve to know.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     SECTION 6 — MOVEMENT NUMBERS
+═══════════════════════════════════ -->
+<section class="numbers" aria-label="Movement Statistics">
+  <div class="container">
+    <div class="numbers-strip" role="list">
+      <div class="number-item reveal" role="listitem">
+        <span class="number-value" data-target="100" data-suffix="%">0%</span>
+        <span class="number-label">Natural Ingredients</span>
+      </div>
+      <div class="number-item reveal reveal-delay-1" role="listitem">
+        <span class="number-value" data-target="0" data-prefix="">0</span>
+        <span class="number-label">Synthetic Chemicals</span>
+      </div>
+      <div class="number-item reveal reveal-delay-2" role="listitem">
+        <span class="number-value" data-target="0" data-prefix="">0</span>
+        <span class="number-label">Plastic Packaging</span>
+      </div>
+      <div class="number-item reveal reveal-delay-3" role="listitem">
+        <span class="number-value">5–10%</span>
+        <span class="number-label">Profits to Welfare</span>
+      </div>
+      <div class="number-item reveal" role="listitem">
+        <!-- FILL: Replace [X] with actual bars sold count once available -->
+        <span class="number-value">[X]</span>
+        <span class="number-label">Bars Sold</span>
+      </div>
+      <div class="number-item reveal reveal-delay-1" role="listitem">
+        <!-- FILL: Replace [X] with trees-equivalent saved from plastic-free packaging calculation -->
+        <span class="number-value">[X]</span>
+        <span class="number-label">Trees Equivalent Saved</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     SECTION 7 — WHY LOCAL MATTERS (MANIFESTO II)
+═══════════════════════════════════ -->
+<section class="manifesto-two" aria-label="Why Local Matters — Manifesto Part II">
+  <div class="container">
+    <p class="section-label reveal">Manifesto · Part II</p>
+
+    <div class="manifesto-two-grid">
+      <div>
+        <h2 class="reveal" lang="bn">আমাদের মাটি।<br>আমাদের শক্তি।<em>Our soil. Our strength.</em></h2>
+
+        <p class="reveal reveal-delay-1">
+          <!-- FILL: Opening paragraph — economic sovereignty argument. Every taka spent on an imported product leaves Bangladesh. Every taka spent locally stays and multiplies. Make the economic case feel personal and visceral. -->
+          Every time you buy an imported personal care product, a portion of your money leaves Bangladesh permanently. It funds someone else's economy, someone else's infrastructure, someone else's children's schools. We are not against the world — we are <strong>for ourselves first.</strong>
+        </p>
+        <p class="reveal reveal-delay-2">
+          <!-- FILL: Paragraph about quality — local doesn't mean inferior. Cold-pressed oils, fresh botanicals, small-batch craftsmanship. The opposite of factory-scale homogenization. -->
+          Local means freshness that factory-scale cannot achieve. Our coconut oil is cold-pressed. Our botanicals are harvested seasonally. Nothing sits in a container ship for weeks before reaching your skin. <strong>Proximity is quality.</strong> It always has been.
+        </p>
+        <p class="reveal reveal-delay-3">
+          <!-- FILL: Paragraph about community wealth — the soap-maker, the oil-presser, the packaging maker, the delivery person. How one purchase creates a chain of local livelihoods. -->
+          When you buy one bar of Eco-Nur soap, you pay the artisan who made it, the farmer who grew its ingredients, the woman who pressed the oil, the craftsperson who wrapped it. A single purchase is a small act of community economics. Multiplied by thousands of people making the same choice, it becomes a quiet revolution.
+        </p>
+        <p class="reveal">
+          <!-- FILL: Paragraph about environmental impact of import shipping — carbon miles, cold chains, packaging waste. The hidden environmental cost of buying "global" that no one puts on the label. -->
+          No one lists the carbon miles on a label. No one tells you about the refrigerated shipping container, the port handling, the plastic-wrapped pallet that carried your "natural" imported soap across an ocean. <strong>Buying local is the most honest environmental choice you can make.</strong>
+        </p>
+      </div>
+
+      <!-- Botanical SVG illustration -->
+      <div class="botanical-art reveal reveal-delay-2" aria-hidden="true">
+        <svg viewBox="0 0 320 420" width="320" height="420" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Soap bar illustration -->
+          <rect x="80" y="280" width="160" height="90" rx="12" fill="#1a4a35" stroke="#2d6a4f" stroke-width="1.5"/>
+          <rect x="88" y="288" width="144" height="74" rx="9" fill="none" stroke="#74a57f" stroke-width="0.5" opacity="0.5"/>
+          <text x="160" y="328" text-anchor="middle" font-family="Hind Siliguri, sans-serif" font-size="14" fill="#d4a843" font-weight="600">ECO-NUR</text>
+          <text x="160" y="348" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="10" fill="#74a57f" font-style="italic">handcrafted · natural</text>
+
+          <!-- Stem -->
+          <line x1="160" y1="280" x2="160" y2="160" stroke="#2d6a4f" stroke-width="1.5" stroke-linecap="round"/>
+
+          <!-- Main leaf left -->
+          <path d="M160 220 Q110 190 95 150 Q115 165 160 200" fill="#1a4a35" stroke="#2d6a4f" stroke-width="1"/>
+          <path d="M160 220 Q110 190 95 150" stroke="#74a57f" stroke-width="0.5" fill="none"/>
+
+          <!-- Main leaf right -->
+          <path d="M160 200 Q210 170 225 130 Q205 145 160 185" fill="#1a4a35" stroke="#2d6a4f" stroke-width="1"/>
+          <path d="M160 200 Q210 170 225 130" stroke="#74a57f" stroke-width="0.5" fill="none"/>
+
+          <!-- Upper leaf left -->
+          <path d="M160 175 Q125 155 112 125 Q130 138 160 162" fill="#2d6a4f" stroke="#2d6a4f" stroke-width="0.8"/>
+
+          <!-- Upper leaf right -->
+          <path d="M160 162 Q195 142 208 112 Q190 125 160 148" fill="#2d6a4f" stroke="#2d6a4f" stroke-width="0.8"/>
+
+          <!-- Flower / top -->
+          <circle cx="160" cy="120" r="18" fill="#0d3027" stroke="#2d6a4f" stroke-width="1"/>
+          <circle cx="160" cy="120" r="6" fill="#d4a843" opacity="0.8"/>
+          <circle cx="160" cy="104" r="4" fill="#1a4a35" stroke="#74a57f" stroke-width="0.8"/>
+          <circle cx="172" cy="109" r="4" fill="#1a4a35" stroke="#74a57f" stroke-width="0.8"/>
+          <circle cx="176" cy="122" r="4" fill="#1a4a35" stroke="#74a57f" stroke-width="0.8"/>
+          <circle cx="172" cy="133" r="4" fill="#1a4a35" stroke="#74a57f" stroke-width="0.8"/>
+          <circle cx="160" cy="136" r="4" fill="#1a4a35" stroke="#74a57f" stroke-width="0.8"/>
+          <circle cx="148" cy="133" r="4" fill="#1a4a35" stroke="#74a57f" stroke-width="0.8"/>
+          <circle cx="144" cy="122" r="4" fill="#1a4a35" stroke="#74a57f" stroke-width="0.8"/>
+          <circle cx="148" cy="109" r="4" fill="#1a4a35" stroke="#74a57f" stroke-width="0.8"/>
+
+          <!-- Small dots / seeds -->
+          <circle cx="120" cy="240" r="2" fill="#74a57f" opacity="0.4"/>
+          <circle cx="200" cy="260" r="2" fill="#74a57f" opacity="0.4"/>
+          <circle cx="95" cy="300" r="1.5" fill="#d4a843" opacity="0.3"/>
+          <circle cx="225" cy="295" r="1.5" fill="#d4a843" opacity="0.3"/>
+
+          <!-- Decorative circle -->
+          <circle cx="160" cy="200" r="110" stroke="#e8dcc8" stroke-width="0.4" opacity="0.3" stroke-dasharray="4 6"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Botanical divider -->
+<div class="botanical-divider" style="background:var(--mati-cream);" aria-hidden="true">
+  <svg viewBox="0 0 1200 50" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;width:100%;height:50px;">
+    <path d="M0 25 Q300 5 600 25 Q900 45 1200 25" stroke="rgba(45,106,79,0.2)" stroke-width="1" fill="none"/>
+    <path d="M100 25 L90 12 M100 25 L108 12" stroke="rgba(45,106,79,0.2)" stroke-width="0.8" fill="none"/>
+    <path d="M600 25 L590 12 M600 25 L610 12" stroke="rgba(45,106,79,0.2)" stroke-width="0.8" fill="none"/>
+    <path d="M1100 25 L1090 12 M1100 25 L1108 12" stroke="rgba(45,106,79,0.2)" stroke-width="0.8" fill="none"/>
+  </svg>
+</div>
+
+<!-- ═══════════════════════════════════
+     SECTION 8 — JOIN THE MOVEMENT
+═══════════════════════════════════ -->
+<section class="join" id="join" aria-label="Join the Movement">
+  <div class="container">
+    <p class="section-label reveal">Join Us · Community</p>
+    <h2 class="reveal reveal-delay-1">"This isn't<br>a brand.<br>It's a belief."</h2>
+    <p class="join-sub reveal reveal-delay-2">
+      <!-- FILL: 1–2 sentences inviting people to be part of the movement — not just as customers but as advocates, believers, community members. -->
+      If you believe that what you put on your body matters, that local is powerful, and that kindness is a legitimate business model — this is your community. Sign up. We'd love to know you.
+    </p>
+
+    <form action="#" method="post" class="join-form reveal reveal-delay-3" aria-label="Join the movement signup form">
+      <div class="form-field">
+        <label for="join-name">Your Name</label>
+        <input type="text" id="join-name" name="name" placeholder="Ayesha, Kabir, ..." autocomplete="given-name">
+      </div>
+      <div class="form-field">
+        <label for="join-email">Email Address</label>
+        <input type="email" id="join-email" name="email" placeholder="you@example.com" autocomplete="email" required>
+      </div>
+      <div class="form-field full">
+        <label for="join-why">Why I joined <em style="font-style:normal;opacity:0.5;font-size:0.65rem;text-transform:none;letter-spacing:0;">(optional)</em></label>
+        <textarea id="join-why" name="why" placeholder="Because I want to choose differently..." rows="3"></textarea>
+      </div>
+      <div class="form-field full">
+        <button type="submit" class="form-submit" aria-label="Submit — Count Me In">Count Me In →</button>
+        <p class="form-note">No spam. Ever. We're not that kind of brand.</p>
+      </div>
+    </form>
+
+    <div class="social-links reveal" style="margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(245,240,232,0.08);display:flex;gap:2rem;">      <a href="https://facebook.com/econurskincare" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Eco-Nur on Facebook (opens in new tab)">Facebook</a>
+      <a href="https://instagram.com/econur.skincare" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Eco-Nur on Instagram (opens in new tab)">Instagram</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     SECTION 9 — BRIDGE TO PRODUCT
+═══════════════════════════════════ -->
+<section class="bridge" aria-label="Bridge to Eco-Nur product site">
+  <div class="container">
+    <p class="section-label reveal">The Soap · Where It Starts</p>
+    <h2 class="reveal reveal-delay-1">"The soap is<br>where it starts."</h2>
+    <p class="reveal reveal-delay-2">
+      <!-- FILL: 2 sentences about how buying Eco-Nur soap directly funds this movement and the welfare pledge. The connection between the product and the cause. -->
+      Every bar of Eco-Nur soap you buy puts resources into local hands and funding into social welfare. The soap is the seed — the movement is what grows from it.
+    </p>
+    <a href="https://eco-nur.com" class="btn-bridge reveal reveal-delay-3" target="_blank" rel="noopener noreferrer" aria-label="Explore Eco-Nur Soaps — opens eco-nur.com">Explore Our Soaps →</a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     FOOTER
+═══════════════════════════════════ -->
+<footer aria-label="Site footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo" lang="bn">মাটি <span style="font-family:'DM Sans',sans-serif;font-weight:300;font-size:0.85rem;opacity:0.5" lang="en">by Eco-Nur</span></div>
+        <p class="footer-tagline">Chemical-free. Plastic-free.<br>Made in Bangladesh with love.</p>
+      </div>
+
+      <!-- <nav aria-label="Footer navigation">
+        <ul class="footer-links">
+          <li><a href="https://eco-nur.com" target="_blank" rel="noopener noreferrer">eco-nur.com</a></li>
+          <li><a href="https://facebook.com/econurskincare" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+          <li><a href="https://instagram.com/econur.skincare" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+           FILL: WhatsApp link — add href="https://wa.me/880XXXXXXXXXX" with actual WhatsApp number 
+          <li><a href="#" aria-label="WhatsApp — link coming soon">WhatsApp</a></li>
+        </ul>
+      </nav> -->
+
+      <div>
+        <p class="footer-tagline" style="margin-bottom:0.5rem;">
+          <!-- FILL: Replace with actual Dhaka address if you want to display it -->
+          Dhaka, Bangladesh
+        </p>
+        <p class="footer-tagline">BCSIR Certified · Made in Bangladesh</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">© 2026 Econur. All rights reserved.</p>
+      <p class="footer-integrity">This movement site contains no tracking pixels, no third-party cookies, and no synthetic ingredients.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════ -->
+<script>
+/* ── NAV SCROLL BEHAVIOR ── */
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 80);
+}, { passive: true });
+
+/* ── MOBILE NAV ── */
+const toggle = document.getElementById('nav-toggle');
+const mobileNav = document.getElementById('nav-mobile');
+const closeBtn = document.getElementById('nav-close');
+const mobileLinks = mobileNav.querySelectorAll('a');
+
+function openNav() {
+  mobileNav.classList.add('open');
+  toggle.setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
+}
+function closeNav() {
+  mobileNav.classList.remove('open');
+  toggle.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+
+toggle.addEventListener('click', openNav);
+closeBtn.addEventListener('click', closeNav);
+mobileLinks.forEach(link => link.addEventListener('click', closeNav));
+
+/* ── INTERSECTION OBSERVER — REVEAL ── */
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+reveals.forEach(el => revealObserver.observe(el));
+
+/* ── COUNTER ANIMATION ── */
+function animateCounter(el, target, suffix, prefix) {
+  const duration = 1800;
+  const start = performance.now();
+  const isZero = target === 0;
+
+  function update(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = Math.round(eased * target);
+    el.textContent = (prefix || '') + current + (suffix || '');
+    if (progress < 1) requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+
+const counterEls = document.querySelectorAll('[data-target]');
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseInt(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      const prefix = el.dataset.prefix || '';
+      animateCounter(el, target, suffix, prefix);
+      counterObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+
+counterEls.forEach(el => counterObserver.observe(el));
+
+/* ── HERO PARALLAX — CSS-BASED fallback handled via transform ── */
+const heroBg = document.querySelector('.hero-bg-element');
+if (heroBg) {
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    heroBg.style.transform = `translateY(calc(-50% + ${scrolled * 0.3}px))`;
+  }, { passive: true });
+}
+</script>
+</body>
+</html>
